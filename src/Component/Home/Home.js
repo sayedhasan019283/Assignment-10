@@ -11,7 +11,7 @@ const Home = () => {
             .then(data => setServices(data))
     }, [])
     return (
-        <div className='service-cart-fix'>
+        <div id='services' className='service-cart-fix'>
             {
                 services.map(service => <Service
                     key={service.id}

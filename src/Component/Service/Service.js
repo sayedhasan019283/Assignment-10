@@ -15,8 +15,9 @@ const Service = ({ service }) => {
                 <p>{point3}</p>
                 <p>{point4}</p>
                 <p>{point5}</p>
+                <button className='fix-btn'>Subscribe Now</button>
             </div>
-            <button>Subscribe Now</button>
+
 
         </div>
     );
