@@ -35,16 +35,8 @@ const Register = () => {
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-
         await createUserWithEmailAndPassword(email, password)
-
-        if (user) {
-            navigate('/home')
-        }
-        else {
-            setError('wrong password');
-        }
-
+        navigate('/home')
     }
     return (
         <Form onSubmit={handelRegister} className='w-50 fix-from'>
