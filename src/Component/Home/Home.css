@@ -3,3 +3,16 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
 }
+
+.fix-title {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 576px) {
+    .service-cart-fix {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

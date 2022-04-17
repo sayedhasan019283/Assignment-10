@@ -24,15 +24,12 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link href="/home#home-banner">Home</Nav.Link>
                             <Nav.Link href="/home#services">Services</Nav.Link>
+                            <Nav.Link href="/blogs">Blogs</Nav.Link>
 
                         </Nav>
                         <Nav>
                             <Nav.Link as={Link} to="/about">About</Nav.Link>
-
-
-
                             {user ?
-
                                 <Nav.Link onClick={handelSingOut} as={Link} to="/login">
                                     Sing Out
                                 </Nav.Link>
@@ -40,10 +37,6 @@ const Header = () => {
                                 <Nav.Link as={Link} to="/login">
                                     Log in
                                 </Nav.Link>
-
-
-
-
                             }
 
                         </Nav>

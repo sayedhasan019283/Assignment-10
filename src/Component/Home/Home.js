@@ -11,13 +11,19 @@ const Home = () => {
             .then(data => setServices(data))
     }, [])
     return (
-        <div id='services' className='service-cart-fix'>
-            {
-                services.map(service => <Service
-                    key={service.id}
-                    service={service}
-                ></Service>)
-            }
+        <div>
+            <div className='fix-title'>
+                <h2>Get Your Membership Now - MOVATI Athletic - Achieve Your Fitness Goals</h2>
+            </div>
+            <div id='services' className='service-cart-fix'>
+
+                {
+                    services.map(service => <Service
+                        key={service.id}
+                        service={service}
+                    ></Service>)
+                }
+            </div>
         </div>
     );
 };

@@ -7,7 +7,8 @@ import img3 from '../../images/slider3.jpg'
 
 const Banner = () => {
     return (
-        <div id='home-banner'>
+
+        <div id='home-banner' className='container-fluid'>
             <Carousel>
                 <Carousel.Item>
                     <img
@@ -48,7 +49,9 @@ const Banner = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
+
         </div>
+
     );
 };
 
