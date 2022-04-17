@@ -21,18 +21,11 @@ const Login = () => {
         const password = event.target.password.value;
 
         signInWithEmailAndPassword(email, password)
-        if (user?.password === password) {
-            navigate('/home')
-        }
-        else {
-            setError('wrong password');
-        }
-        if (user?.email === email) {
-            navigate('/home')
-        }
-        else {
-            setError('wrong email');
-        }
+        navigate('/home')
+
+
+
+
     }
 
 
