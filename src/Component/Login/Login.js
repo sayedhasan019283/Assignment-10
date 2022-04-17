@@ -1,11 +1,13 @@
-import React, { useRef } from 'react';
+import { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from '../../SocialLogin/SocialLogin';
 import './Login.css'
 
 const Login = () => {
+    const [error, setError] = useState()
     const navigate = useNavigate();
     const [
         signInWithEmailAndPassword,
@@ -23,7 +25,7 @@ const Login = () => {
             navigate('/home')
         }
         else {
-            console.log('wrong password');
+            setError('wrong password');
         }
     }
 
@@ -33,14 +35,17 @@ const Login = () => {
     return (
         <Form onSubmit={hendelSubmit} className='w-50 fix-from'>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Control name='email' type="email" placeholder="Enter email" />
+                <Form.Control name='email' type="email" placeholder="Enter email" required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control name='password' type="password" placeholder="Password" />
+                <Form.Control name='password' type="password" placeholder="Password" required />
             </Form.Group>
             <p>New to Fitness GYM? <Link to='/register' className='text-primary text-decoration-none' onClick={nevigateRegister} > Register Now</Link></p>
             <button className='col-md-12 text-center fix-btn'>Login</button>
+            <p> {error}</p>
+            <SocialLogin></SocialLogin>
         </Form>
+
     );
 };
 
