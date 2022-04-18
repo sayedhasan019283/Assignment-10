@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
 import { async } from '@firebase/util';
 import SocialLogin from '../../SocialLogin/SocialLogin';
-import './Login.css'
 import Spiner from '../../Spiner/Spiner';
 
 const Login = () => {
@@ -68,7 +67,7 @@ const Login = () => {
         navigate('/register')
     }
     return (
-        <Form onSubmit={hendelSubmit} className='w-50 fix-from'>
+        <Form onSubmit={hendelSubmit} className='w-50 fix-from mx-auto mt-5'>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control ref={emailRef} name='email' type="email" placeholder="Enter email" required />
             </Form.Group>
