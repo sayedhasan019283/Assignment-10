@@ -18,8 +18,9 @@ const Banner = () => {
                         height='650px'
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Fitness is Pride</h3>
+                        <p>Make physical activity part of your daily routine.</p>
+
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -31,8 +32,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Health is Wealth</h3>
+                        <p>Join forces with friends, neighbors or others <br /> in Fitness GYM</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -44,8 +45,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>You are Invited to our Fitness GYM</h3>
+                        <p>Keep Fit. <br /> Stay Strong</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

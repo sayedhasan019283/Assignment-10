@@ -1,23 +1,23 @@
-.cart-fix {
-    margin-top: 50px;
-    margin-left: 25px;
+.service {
     box-shadow: 0px 12px 23px -8px #464244;
     border-radius: 30px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding: 30px;
+    background-color: wheat;
+    color: black;
 }
 
-.fix-img {
-    height: 300px;
-    width: 300px;
-    margin-left: 60px;
+.service .description img {
+    border-radius: 30px;
+    width: 400px;
+    padding: 10px;
+
 }
 
-.fix-text {
+.service .description {
     text-align: center;
 }
 
-.fix-btn {
+.join-btn {
     margin-top: 10px;
     text-decoration: none;
     font-weight: 500;
@@ -30,6 +30,5 @@
 @media only screen and (max-width: 576px) {
     .fix-img {
         width: 75%;
-
     }
 }

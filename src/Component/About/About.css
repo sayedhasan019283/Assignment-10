@@ -6,6 +6,13 @@
 }
 
 .fix-img {
-    margin: 0 auto;
-    margin-top: 70px;
+    align-items: center;
+    margin-left: 550px;
+}
+
+@media only screen and (max-width: 576px) {
+    .fix-img {
+        align-items: center;
+        margin-left: 130px;
+    }
 }
