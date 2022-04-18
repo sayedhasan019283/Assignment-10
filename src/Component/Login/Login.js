@@ -1,33 +1,68 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
+import { async } from '@firebase/util';
 import SocialLogin from '../../SocialLogin/SocialLogin';
 import './Login.css'
+import Spiner from '../../Spiner/Spiner';
 
 const Login = () => {
-    const [error, setError] = useState()
+    const [user1,
+        loading1,
+        error2
+    ] = useAuthState(auth);
+    const [error1, setError] = useState()
     const navigate = useNavigate();
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const emailRef = useRef('');
     const [
         signInWithEmailAndPassword,
-
+        user,
+        loading,
+        error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [user] = useAuthState(auth);
     const hendelSubmit = event => {
 
         event.preventDefault()
         const email = event.target.email.value;
         const password = event.target.password.value;
+        console.log(password);
 
         signInWithEmailAndPassword(email, password)
-        navigate('/home')
+        navigate('./')
+    }
+    const location = useLocation();
 
-
-
+    let from = location.state?.from?.pathname || "/";
+    if (user) {
+        navigate(from, { replace: true })
+    }
+    if (loading || sending) {
+        return <Spiner></Spiner>
 
     }
-
+    let errorElement;
+    if (error) {
+        errorElement = (
+            <div>
+                <p>Error: {error?.message}</p>
+            </div>
+        );
+    };
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast('please enter your email')
+        }
+    }
 
     const nevigateRegister = event => {
         navigate('/register')
@@ -35,16 +70,18 @@ const Login = () => {
     return (
         <Form onSubmit={hendelSubmit} className='w-50 fix-from'>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Control name='email' type="email" placeholder="Enter email" required />
+                <Form.Control ref={emailRef} name='email' type="email" placeholder="Enter email" required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control name='password' type="password" placeholder="Password" required />
             </Form.Group>
-            <p> {error}</p>
+            <p className='text-danger'>{errorElement}</p>
             <p>New to Fitness GYM? <Link to='/register' className='text-primary text-decoration-none' onClick={nevigateRegister} > Register Now</Link></p>
+            <p>Forget Password? <button className='text-primary text-decoration-none btn btn-link' onClick={resetPassword}> Reset Password</button></p>
             <button className='col-md-12 text-center fix-btn'>Login</button>
 
             <SocialLogin></SocialLogin>
+            <ToastContainer />
         </Form>
 
     );
